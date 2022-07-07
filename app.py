@@ -10,10 +10,10 @@ from algorithms import Node
 from algorithms import KNN
 from sklearn.preprocessing import StandardScaler
 
-model = pickle.load(open('/Users/pavanvasanthkommineni/Desktop/project/Random_Frequency_set.pkl','rb'))
-list1=pickle.load(open('/Users/pavanvasanthkommineni/Desktop/project/tt.pkl','rb'))
-list2=pickle.load(open('/Users/pavanvasanthkommineni/Desktop/project/tt1.pkl','rb'))
-list3=pickle.load(open('/Users/pavanvasanthkommineni/Desktop/project/trt.pkl','rb'))
+model = pickle.load(open('Random_Frequency_set.pkl','rb'))
+list1=pickle.load(open('tt.pkl','rb'))
+list2=pickle.load(open('tt1.pkl','rb'))
+list3=pickle.load(open('trt.pkl','rb'))
 app = Flask(__name__)
 
 
