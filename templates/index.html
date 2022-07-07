@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data Mining Project</title>
+<link rel="stylesheet" href="templates/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>
+</head>
+<body>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Mushroom Edibility Classification</h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+				<p> In this application you need to select one of the options for each dropdown and then click on the predict button. This will give you a new pop-up which will predict the edibility of mushroom according to your selection.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/Users/pavanvasanthkommineni/Desktop/project/templates/style.css">  
+</head>
+<style>
+    #main-title-area {
+    background-image: linear-gradient(rgba(33, 41, 49, 0.8), rgba(30, 37, 45, 0.8)), url("../static/mushrooms.jpeg");
+    background-position: center 10%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+</style>
+
+<body>
+    <section id="main-title-area">
+        <h5><strong>Select the Options from the Dropdown that you desire</strong> </h5>
+        <form action="{{url_for('index')}}" method="post">
+            <table cellpadding = "10" style ="width:33%;vertical-align: center;table-layout:center;width :110%;text-align: justify;">
+                <tbody>
+                    <tr>
+                        <td style = "width:30%; vertical-align:center;">
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Cap Shape:</label>
+                            <select name="CapShape">
+                            <option value="b">Bell</option>
+                            <option value="c">Conical</option>
+                            <option value="x">Convex</option>
+                            <option value="f">Flat</option>
+                            <option value="k">Knobbed</option>
+                            <option value="s">Sunken</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Cap Surface:</label>
+                            <select name="CapSurface">
+                            <option value="f">Fibrous</option>
+                            <option value="g">Grooves</option>
+                            <option value="y">Scaly</option>
+                            <option value="s">Smooth</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Cap Color:</label>
+                            <select name="CapColor">
+                            <option value="n">Brown</option>
+                            <option value="b">Buff</option>
+                            <option value="c">Cinnamon</option>
+                            <option value="g">Gray</option>
+                            <option value="r">Green</option>
+                            <option value="p">Pink</option>
+                            <option value="u">Purple</option>
+                            <option value="e">Red</option>
+                            <option value="w">White</option>
+                            <option value="y">Yellow</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Bruises:</label>
+                            <select name="Bruises">
+                            <option value="t">Bruises</option>
+                            <option value="f">No</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Ordor:</label>
+                            <select name="Ordor">
+                            <option value="a">Almond</option>
+                            <option value="l">Anise</option>
+                            <option value="c">Creosite</option>
+                            <option value="y">Fishy</option>
+                            <option value="f">Foul</option>
+                            <option value="m">Musty</option>
+                            <option value="n">None</option>
+                            <option value="p">Punget</option>
+                            <option value="s">Spicy</option>
+                            </select><br>
+            
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Gill Attachment:</label>
+                            <select name="GillAttachment">
+                            <option value="a">Attached</option>
+                            <!-- <option value="d">Descending</option> -->
+                            <option value="f">Free</option>
+                            <!-- <option value="n">Notched</option> -->
+                            </select><br>
+                        
+                            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Gill Spacing:</label>
+                            <select name="GillSpacing">
+                            <option value="c">Close</option>
+                            <option value="w">Crowded</option>
+                            <!-- <option value="d">Distant</option> -->
+                            </select><br>
+            
+                        </td>
+
+                        <td style = "width:36%;vertical-align:center;">
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;"for="">Gill Size:</label>
+                            <select name="GillSize">
+                            <option value="b">Broad</option>
+                            <option value="n">Narrow</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Gill Color:</label>
+                            <select name="GillColor">
+                            <option value="k">Black</option>
+                            <option value="n">Brown</option>
+                            <option value="b">Buff</option>
+                            <option value="h">Chocolate</option>
+                            <option value="g">Gray</option>
+                            <option value="r">Green</option>
+                            <option value="o">Orange</option>
+                            <option value="p">Pink</option>
+                            <option value="u">Purple</option>
+                            <option value="e">Red</option>
+                            <option value="w">White</option>
+                            <option value="y">Yellow</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Stalk Shape:</label>
+                            <select name="StalkShape">
+                            <option value="e">Enlarging</option>
+                            <option value="t">Tapering</option>
+                            </select><br>
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Stalk Root:</label>
+                            <select name="StalkRoot">
+                            <option value="b">Bulbous</option>
+                            <option value="c">Club</option>
+                            <!-- <option value="u">Cup</option> -->
+                            <option value="e">Equal</option>
+                            <!-- <option value="z">Rhizomorphs</option> -->
+                            <option value="r">Rooted</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Stalk Surface Above Ring:</label>
+                            <select name="StalkSurfaceAboveRing">
+                            <option value="f">Fibrous</option>
+                            <option value="y">Scaly</option>
+                            <option value="k">Silky</option>
+                            <option value="s">Smooth</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Stalk Surface Below Ring:</label>
+                            <select name="StalkSurfaceBelowRing">
+                            <option value="f">Fibrous</option>
+                            <option value="y">Scaly</option>
+                            <option value="k">Silky</option>
+                            <option value="s">Smooth</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Stalk Color Above Ring:</label>
+                            <select name="StalkColorAboveRing">
+                            <option value="n">Brown</option>
+                            <option value="b">Buff</option>
+                            <option value="c">Cinnamon</option>
+                            <option value="g">Gray</option>
+                            <option value="o">Orange</option>
+                            <option value="p">Pink</option>
+                            <option value="e">Red</option>
+                            <option value="w">White</option>
+                            <option value="y">Yellow</option>
+                            </select><br>
+
+                        </td>
+                        <td style = "width:34%; vertical-align:center;">
+
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Stalk Color Below Ring:</label>
+                            <select name="StalkColorBelowRing">
+                            <option value="n">Brown</option>
+                            <option value="b">Buff</option>
+                            <option value="c">Cinnamon</option>
+                            <option value="g">Gray</option>
+                            <option value="o">Orange</option>
+                            <option value="p">Pink</option>
+                            <option value="e">Red</option>
+                            <option value="w">White</option>
+                            <option value="y">Yellow</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Veil Color:</label>
+                            <select name="VeilColor">
+                            <option value="n">Brown</option>
+                            <option value="o">Orange</option>
+                            <option value="w">White</option>
+                            <option value="y">Yellow</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Ring Number:</label>
+                            <select name="RingNumber">
+                            <option value="n">None</option>
+                            <option value="o">One</option>
+                            <option value="t">Two</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Ring Type:</label>
+                            <select name="RingType">
+                            <!-- <option value="c">cobwebby</option> -->
+                            <option value="e">evanescent</option>
+                            <option value="f">flaring</option>
+                            <option value="l">large</option>
+                            <option value="n">None</option>
+                            <option value="p">pendant</option>
+                            <!-- <option value="s">sheathing</option> -->
+                            <!-- <option value="z">zone</option> -->
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Spore Print Color:</label>
+                            <select name="SporePrintColor">
+                            <option value="k">Black</option>
+                            <option value="n">Brown</option>
+                            <option value="b">Buff</option>
+                            <option value="h">Chocolate</option>
+                            <option value="r">Green</option>
+                            <option value="o">Orange</option>
+                            <option value="u">Purple</option>
+                            <option value="w">White</option>
+                            <option value="y">Yellow</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Population:</label>
+                            <select name="Population">
+                            <option value="a">Abundant</option>
+                            <option value="c">Clustered</option>
+                            <option value="n">Numerous</option>
+                            <option value="s">Scattered</option>
+                            <option value="v">Several</option>
+                            <option value="y">Solitary</option>
+                            </select><br>
+            
+                            <label style="margin-top: 20px; margin-bottom: 20px;" for="">Habitat:</label>
+                            <select name="Habitat">
+                            <option value="g">Grasses</option>
+                            <option value="l">Leaves</option>
+                            <option value="m">Meadows</option>
+                            <option value="p">Paths</option>
+                            <option value="u">Urban</option>
+                            <option value="w">Waste</option>
+                            <option value="d">Woods</option>
+                            </select><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <input name="save" type="submit" value="Predict">
+        </form>
+    </section>
+</body>
+</html>
